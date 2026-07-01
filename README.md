@@ -1,32 +1,96 @@
-# day 2 Networking Assignment
+# Network Requests Analysis
 
-GET /
-Status: 304 Not Modified
-Type: document
-Header: Cache-Control: max-age=3600
+## Website Visited
 
-GET main.css
-Status: 200
-Type: stylesheet
-Header: Content-Type: text/css
+https://shorterloop.com
 
-GET styles.css
-Status: 200
-Type: stylesheet
-Header: Content-Type: text/css
+---
 
-GET lozad.min.js
-Status: 200
-Type: script
-Header: Content-Type: application/javascript
+## Network Requests
 
-GET ship-products-with-confidence.webpnslookup output:
+### 1. GET /
 
-Name: shorterloop.com
+* **Type:** Document
+* **Status Code:** 200 OK
+* **Header:** `Content-Type: text/html; charset=utf-8`
 
-Addresses:
-64:ff9b::c724:9e64
-199.36.158.100
-Status: 200
-Type: image
-Header: Content-Type: image/webp
+This is the main HTML page of the website. The browser loads this page first.
+
+---
+
+### 2. GET /assets/scripts/lozad.min.js
+
+* **Type:** Script
+* **Status Code:** 200 OK
+* **Header:** `Content-Type: text/javascript; charset=utf-8`
+
+This JavaScript file helps load website content efficiently.
+
+---
+
+### 3. GET /assets/css/fonts.css
+
+* **Type:** Stylesheet
+* **Status Code:** 200 OK
+* **Header:** `Content-Type: text/css; charset=utf-8`
+
+This CSS file contains the font styles used on the website.
+
+---
+
+### 4. GET /assets/css/main.css
+
+* **Type:** Stylesheet
+* **Status Code:** 200 OK
+* **Header:** `Content-Type: text/css; charset=utf-8`
+
+This file contains the main styling and layout of the website.
+
+---
+
+### 5. GET /assets/fonts/geist-sans/Geist-Regular.woff2
+
+* **Type:** Font
+* **Status Code:** 200 OK
+* **Header:** `Content-Type: font/woff2`
+
+This font file is used to display the website text correctly.
+
+---
+
+## DNS Lookup
+
+### Command Used
+
+```bash
+nslookup shorterloop.com
+```
+
+### Output
+
+```text
+Server:  UnKnown
+Address: 10.146.168.49
+
+Non-authoritative answer:
+Name:    shorterloop.com
+Address: 199.36.158.100
+```
+
+---
+
+## Screenshots
+
+* `network.png` – Network tab showing the requests made while loading the website.
+* `terminal.png` – Output of the `nslookup` command.
+
+---
+
+## What I Learned
+
+* A website is made up of multiple files such as HTML, CSS, JavaScript, fonts, and images.
+* The browser sends a separate request for each file needed to load the webpage.
+* DNS converts a domain name into an IP address.
+* A **200 OK** status code means the request was successful.
+* Response headers provide information about the content returned by the server.
+*
