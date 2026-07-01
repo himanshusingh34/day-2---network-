@@ -1,4 +1,4 @@
-# day-2---network-# Day 2 Networking Assignment
+# day 2 Networking Assignment
 
 GET /
 Status: 304 Not Modified
